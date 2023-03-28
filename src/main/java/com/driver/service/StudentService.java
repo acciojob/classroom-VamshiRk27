@@ -74,8 +74,14 @@ public class StudentService {
     public void deleteAllTeachers(){
         HashMap<String,List<String>> pairDb=studentRepository.getStudentTeacherPair();
         HashMap<String,Teacher> teacherDb=studentRepository.getAllTeachers();
-        pairDb.clear();
-        teacherDb.clear();
+        HashMap<String,Student> studentDb=studentRepository.getAllStudents();
+        for(String teacher:teacherDb.keySet()){
+            for(String student:pairDb.get(teacher)){
+                studentDb.remove(student);
+            }
+            pairDb.remove(teacher);
+            teacherDb.remove(teacher);
+        }
     }
 
 }
