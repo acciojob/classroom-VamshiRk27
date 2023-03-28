@@ -61,13 +61,13 @@ public class StudentService {
     public void deleteTeacherByName(String teacher){
         HashMap<String,List<String>> pairDb=studentRepository.getStudentTeacherPair();
         HashMap<String,Teacher> teacherDb=studentRepository.getAllTeachers();
+        HashMap<String,Student> studentDb=studentRepository.getAllStudents();
         //removed from pairs Database
-        for(String teacherName:pairDb.keySet()){
-            if(teacherName.equals(teacher)){
-                pairDb.remove(teacherName);
-            }
+        for(String student:pairDb.get(teacher)){
+            studentDb.remove(student);
         }
         //removed from teachers database
+        pairDb.remove(teacher);
         teacherDb.remove(teacher);
     }
     //9 Delete all teachers and all students by them
