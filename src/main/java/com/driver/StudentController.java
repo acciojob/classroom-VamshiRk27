@@ -1,10 +1,7 @@
-package com.driver.controller;
+package com.driver;
 
 import java.util.List;
 
-import com.driver.models.Student;
-import com.driver.models.Teacher;
-import com.driver.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
